@@ -2,14 +2,14 @@ import styled from 'styled-components'
 
 export const StyledHeader = styled.header`
   height: 80px;
-  display: flex;
-  align-items: center;
 `
 
 export const Nav = styled.nav`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  a {
+    font-size: 2rem;
+    text-transform: uppercase;
+  }
+
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
     flex-direction: column;

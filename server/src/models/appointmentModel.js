@@ -2,12 +2,20 @@ const mongoose = require('mongoose')
 
 const appointmentSchema = mongoose.Schema(
   {
-    startingTime: {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: 'User',
+    },
+    appointmentDate: {
       type: Date,
+    },
+    startingTime: {
+      type: String,
       required: [true, 'Please add starting time'],
     },
     endingTime: {
-      type: Date,
+      type: String,
       required: [true, 'Please add ending time'],
     },
   },

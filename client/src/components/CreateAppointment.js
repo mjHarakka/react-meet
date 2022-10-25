@@ -3,9 +3,9 @@ import { useState } from 'react'
 import CalendarView from './CalendarView'
 import { StyledCalendarView } from './styles/CalendarView.styled'
 import Calendar from 'react-calendar'
-import { Input } from './styles/Input.styled copy'
+import { Input } from './styles/Input.styled'
 import { FaCalendar } from 'react-icons/fa'
-import { Select } from './styles/Input.styled copy 2'
+import { Select } from './styles/Select.styled'
 import { times } from './Times'
 
 const CreateAppointment = () => {
@@ -27,7 +27,7 @@ const CreateAppointment = () => {
     <div>
       <h1>Create appointment</h1>
       Date
-      <Input></Input>
+      <Input value={`${date.getDay()}.${date.getMonth()}.${date.getFullYear()}`} readonly></Input>
       <FaCalendar onClick={() => setShowCalendar(!showCalendar)} />
       {showCalendar ? (
         <StyledCalendarView>
@@ -47,7 +47,7 @@ const CreateAppointment = () => {
       Ending time:
       <Select
         onChange={(event) => {
-          setStartingTime(event.target.value)
+          setEndingTime(event.target.value)
         }}
       >
         {times.map((time) => (

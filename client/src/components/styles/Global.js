@@ -8,6 +8,12 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
   }
 
+  a {
+    text-decoration: none;
+    color: ${({theme}) => theme.colors.darkPrimary};
+    font-weight: 900;
+  }
+
   body {
     background: ${({ theme }) => theme.colors.background};
     color: ${({theme}) => theme.colors.darkPrimary};

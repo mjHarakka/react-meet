@@ -10,7 +10,6 @@ export default function CalendarView() {
     setDate(event)
   }
 
-  console.log(date)
 
   return (
     <StyledCalendarView>
