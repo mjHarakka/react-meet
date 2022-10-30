@@ -3,7 +3,8 @@ const asyncHandler = require('express-async-handler')
 const Appointment = require('../models/appointmentModel')
 
 const getAppointments = asyncHandler(async (req, res) => {
-  const appointments = await Appointment.find()
+  const appointments = await Appointment.find({ user: req.user.id })
+
   res.status(200).json(appointments)
 })
 
