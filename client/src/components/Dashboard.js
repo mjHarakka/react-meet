@@ -41,9 +41,7 @@ const CreateAppointment = () => {
         ))}
       </Select>
       <Button onClick={null}>Create</Button>
-      {appointments.map((appointment) => (
-        <h2 key={appointment.id}>{appointment.date}</h2>
-      ))}
+     
     </StyledForm>
   )
 }
