@@ -1,19 +1,16 @@
 import { Button } from './styles/Button.styled'
 import { useState } from 'react'
-import CalendarView from './CalendarView'
-import { StyledCalendarView } from './styles/CalendarView.styled'
-import Calendar from 'react-calendar'
 import { Input } from './styles/Input.styled'
-import { FaCalendar } from 'react-icons/fa'
 import { Select } from './styles/Select.styled'
 import { times } from './Times'
+import { StyledForm } from './styles/Form.styled'
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker'
+import TextField from '@mui/material/TextField'
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
 const CreateAppointment = () => {
-  const [appointments, setAppointments] = useState([
-    { id: 1, date: '123.32.1990', text: 'lorem 20' },
-    { id: 2, date: '123.32.1990', text: 'lorem 20' },
-    { id: 3, date: '123.32.1990', text: 'lorem 20' },
-  ])
+  const [appointments, setAppointments] = useState([])
   const [date, setDate] = useState(new Date())
   const [showCalendar, setShowCalendar] = useState(false)
   const [startingTime, setStartingTime] = useState(null)
@@ -24,16 +21,22 @@ const CreateAppointment = () => {
   }
 
   return (
-    <div>
+    <StyledForm>
       <h1>Create appointment</h1>
       Date
-      <Input value={`${date.getDay()}.${date.getMonth()}.${date.getFullYear()}`} readonly></Input>
-      <FaCalendar onClick={() => setShowCalendar(!showCalendar)} />
-      {showCalendar ? (
-        <StyledCalendarView>
-          <Calendar value={date} onChange={changeDate} />
-        </StyledCalendarView>
-      ) : null}
+      <Input
+        value={`${date.getDay()}.${date.getMonth()}.${date.getFullYear()}`}
+        readonly
+      ></Input>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <DesktopDatePicker
+          label="Date desktop"
+          inputFormat="MM/DD/YYYY"
+          value={date}
+          onChange={changeDate}
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </LocalizationProvider>
       Starting time:
       <Select
         onChange={(event) => {
@@ -58,7 +61,7 @@ const CreateAppointment = () => {
       {appointments.map((appointment) => (
         <h2 key={appointment.id}>{appointment.date}</h2>
       ))}
-    </div>
+    </StyledForm>
   )
 }
 

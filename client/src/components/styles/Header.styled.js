@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 
 export const StyledHeader = styled.header`
-  height: 80px;
+  padding: 20px 0;
+  border-bottom: 1px solid #e6e6e6;
+  margin-bottom: 60px;
 `
 
 export const Nav = styled.nav`

@@ -10,10 +10,9 @@ export default function CalendarView() {
     setDate(event)
   }
 
-
   return (
     <StyledCalendarView>
-      <Calendar value={date} onChange={changeDate}/>
+      <Calendar value={date} onChange={changeDate} />
     </StyledCalendarView>
   )
 }
