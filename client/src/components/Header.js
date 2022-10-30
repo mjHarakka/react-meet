@@ -11,15 +11,17 @@ export default function Header() {
       <StyledHeader>
         <Flex>
           <FlexItem width={'800px;'}>
-            <Logo>Scheduler</Logo>
+            <Link to="/">
+              <Logo>Scheduler</Logo>
+            </Link>
           </FlexItem>
-            <Link to="/login">
-              <FaSignInAlt /> Login 
-            </Link>
-            <Link to="/register">
-              <FaUser />
-              Sign up
-            </Link>
+          <Link to="/login">
+            <FaSignInAlt /> Login
+          </Link>
+          <Link to="/register">
+            <FaUser />
+            Sign up
+          </Link>
         </Flex>
       </StyledHeader>
     </>
