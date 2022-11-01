@@ -9,12 +9,10 @@ const getAppointments = asyncHandler(async (req, res) => {
 })
 
 const setAppointment = asyncHandler(async (req, res) => {
-  if (!req.body.startingTime || !req.body.endingTime) {
-    res.status(400)
-    throw new Error('Please check your starting and ending time')
-  }
 
   const appointment = await Appointment.create({
+    title: req.body.title,
+    date: req.body.date,
     startingTime: req.body.startingTime,
     endingTime: req.body.endingTime,
   })

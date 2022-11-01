@@ -61,7 +61,7 @@ const Register = () => {
     <StyledForm>
       <h1>
         <FaUser />
-        Sign up
+        Register
       </h1>
       <p>Create an account</p>
 

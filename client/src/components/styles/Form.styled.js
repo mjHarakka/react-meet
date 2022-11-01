@@ -3,9 +3,7 @@ import styled from 'styled-components'
 export const StyledForm = styled.div`
   width: 400px;
 
-
   input,
-  textarea,
   select {
     width: 100%;
     border: 1px solid #e6e6e6;

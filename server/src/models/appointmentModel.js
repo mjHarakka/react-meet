@@ -7,16 +7,21 @@ const appointmentSchema = mongoose.Schema(
       required: true,
       ref: 'User',
     },
-    appointmentDate: {
+    date: {
       type: Date,
+      required: [true, 'Date missing'],
+    },
+    title: {
+      type: String,
+      required: [true, 'Title missing'],
     },
     startingTime: {
       type: String,
-      required: [true, 'Please add starting time'],
+      required: [true, 'Starting time missing'],
     },
     endingTime: {
       type: String,
-      required: [true, 'Please add ending time'],
+      required: [true, 'Ending time missing'],
     },
   },
   { timestamps: true }
