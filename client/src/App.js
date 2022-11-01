@@ -6,13 +6,16 @@ import Dashboard from './components/Dashboard'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Login from './components/Login'
 import Register from './components/Register'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { register, reset } from './features/auth/authSlice'
 
 const theme = {
   colors: {
     background: 'F5F9FC',
     darkPrimary: '#2C4458',
     lightPrimary: '#C6CED6',
-    lightSecondary: '#f7f7f7'
+    lightSecondary: '#f7f7f7',
   },
   mobile: '768px',
 }
@@ -33,6 +36,7 @@ function App() {
           </Container>
         </ThemeProvider>
       </Router>
+      <ToastContainer />
     </>
   )
 }
