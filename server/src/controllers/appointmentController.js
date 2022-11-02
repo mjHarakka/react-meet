@@ -17,7 +17,7 @@ const setAppointment = asyncHandler(async (req, res) => {
     endingTime: req.body.endingTime,
   })
 
-  res.status(200).json({ message: 'set appointment' })
+  res.status(200).json({appointment})
 })
 
 const deleteAppointment = asyncHandler(async (req, res) => {

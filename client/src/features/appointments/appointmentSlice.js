@@ -9,7 +9,6 @@ const initialState = {
   message: '',
 }
 
-// Create new goal
 export const createAppointment = createAsyncThunk(
   'appointments/create',
   async (appointmentData, thunkAPI) => {
