@@ -8,16 +8,16 @@ const getAppointments = asyncHandler(async (req, res) => {
   res.status(200).json(appointments)
 })
 
-const setAppointment = asyncHandler(async (req, res) => {
-
+const setAppointment = asyncHandler(async (req, res, next) => {
   const appointment = await Appointment.create({
+    user: req.user.id,
     title: req.body.title,
     date: req.body.date,
     startingTime: req.body.startingTime,
     endingTime: req.body.endingTime,
   })
 
-  res.status(200).json({appointment})
+  res.status(200).json({ appointment })
 })
 
 const deleteAppointment = asyncHandler(async (req, res) => {

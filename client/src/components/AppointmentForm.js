@@ -61,7 +61,7 @@ function AppointmentForm() {
               </option>
             ))}
           </Select>
-          <Button type='submit'>Create</Button>
+          <Button type="submit">Create</Button>
         </StyledForm>
       </form>
     </section>

@@ -2,6 +2,6 @@ import styled from 'styled-components'
 
 export const StyledDashboard = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 `
 export default StyledDashboard

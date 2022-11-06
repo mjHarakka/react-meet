@@ -1,15 +1,16 @@
-const errorHandler = (err, req, res, next) => {
-  const statusCode = res.statusCode ? res.statusCode : 500
+const errorHandler = (error, req, res, next) => {
+  console.log(error.name)
+  console.log(error.message)
 
-  res.status(statusCode)
-
-  res.json({
-    message: err.message,
-    stack: process.env.NODE_ENV === 'production' ? null : err.stack
+  if (error.name === 'CastError') {
+    return response.status(400).send({ error: 'malformatted id' })
+  } else if (error.name === 'ValidationError') {
+    return response.status(400).json({ error: error.message })
   }
-  )
+
+  next(error)
 }
 
 module.exports = {
-  errorHandler
+  errorHandler,
 }

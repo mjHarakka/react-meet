@@ -17,6 +17,7 @@ const Dashboard = () => {
 
   return (
     <StyledDashboard>
+      <h1>Welcome back, {user.name}!</h1>
       <AppointmentForm></AppointmentForm>
     </StyledDashboard>
   )
