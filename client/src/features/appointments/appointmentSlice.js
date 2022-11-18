@@ -73,7 +73,7 @@ export const appointmentSlice = createSlice({
       .addCase(getAppointments.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.goals = action.payload
+        state.appointments = action.payload
       })
       .addCase(getAppointments.rejected, (state, action) => {
         state.isLoading = false
