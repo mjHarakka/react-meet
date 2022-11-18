@@ -16,6 +16,13 @@ const theme = {
     darkPrimary: '#2C4458',
     lightPrimary: '#C6CED6',
     lightSecondary: '#f7f7f7',
+    theme: {
+      lightBlue: '#8EA4D2',
+      darkBlue: '#6279B8',
+      grey: '#49516F',
+      champagne: '#8EA4D2',
+      blush: '#DA667B',
+    },
   },
   mobile: '768px',
 }

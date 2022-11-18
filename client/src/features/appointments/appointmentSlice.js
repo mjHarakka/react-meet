@@ -13,6 +13,7 @@ export const createAppointment = createAsyncThunk(
   'appointments/create',
   async (appointmentData, thunkAPI) => {
     try {
+      console.log(appointmentData)
       const token = thunkAPI.getState().auth.user.token
       return await appointmentService.createAppointment(appointmentData, token)
     } catch (error) {

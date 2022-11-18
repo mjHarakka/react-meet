@@ -19,7 +19,9 @@ const createAppointment = async (appointmentData, token) => {
 
   return response.data
 }
+
 const appointmentService = {
   createAppointment,
 }
+
 export default appointmentService
