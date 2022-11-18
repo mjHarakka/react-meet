@@ -20,8 +20,24 @@ const createAppointment = async (appointmentData, token) => {
   return response.data
 }
 
+const getAppointments = async (user, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+
+  const response = await axios.get(API_URL, config).catch((error) => {
+    console.error(error)
+    toast(error.response.data.error)
+  })
+  
+  return response.data
+}
+
 const appointmentService = {
   createAppointment,
+  getAppointments,
 }
 
 export default appointmentService

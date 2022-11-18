@@ -28,7 +28,25 @@ export const createAppointment = createAsyncThunk(
   }
 )
 
-export const appointmentSlice  = createSlice({
+export const getAppointments = createAsyncThunk(
+  'appointments/getAll',
+  async (_, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token
+      return await appointmentService.getAppointments(token)
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
+
+export const appointmentSlice = createSlice({
   name: 'appointment',
   initialState,
   reducers: {
@@ -45,6 +63,19 @@ export const appointmentSlice  = createSlice({
         state.appointments.push(action.payload)
       })
       .addCase(createAppointment.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
+      .addCase(getAppointments.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(getAppointments.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.goals = action.payload
+      })
+      .addCase(getAppointments.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload

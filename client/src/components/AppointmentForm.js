@@ -26,8 +26,6 @@ function AppointmentForm() {
     setEndingTime('')
     setTitle('')
   }
-  console.log(startingTime)
-  console.log(endingTime)
 
   return (
     <section className="form">
